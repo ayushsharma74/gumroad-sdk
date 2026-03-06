@@ -4,12 +4,14 @@ import { SalesResource } from "./resources/sales.js";
 import { SubscribersResource } from "./resources/subscribers.js";
 import { LicensesResource } from "./resources/licenses.js";
 import { OffersResource } from "./resources/offers.js";
+import { CustomFieldsResource } from "./resources/customFields.js";
 export class GumroadClient {
     products;
     sales;
     subscribers;
     licenses;
     offers;
+    customFields;
     accessToken;
     baseURL;
     timeout;
@@ -24,6 +26,7 @@ export class GumroadClient {
         this.subscribers = new SubscribersResource(this);
         this.licenses = new LicensesResource(this);
         this.offers = new OffersResource(this);
+        this.customFields = new CustomFieldsResource(this);
     }
     async request(method, path, params) {
         const url = new URL(`${this.baseURL}${path}`);

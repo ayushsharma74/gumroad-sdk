@@ -1,4 +1,4 @@
-import { GumroadClient } from "@gumroad/sdk";
+import { GumroadClient } from "@gumroad-sdk/sdk";
 import { readConfig } from "../config.js";
 
 let clientInstance: GumroadClient | null = null;

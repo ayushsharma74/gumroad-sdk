@@ -3,7 +3,7 @@ import {
     GumroadAuthError,
     GumroadNetworkError,
     GumroadTimeoutError,
-} from "@gumroad/sdk";
+} from "@gumroad-sdk/sdk";
 
 export enum ExitCode {
     Success = 0,

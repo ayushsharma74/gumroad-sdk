@@ -3,7 +3,7 @@ import { getClient } from "../../utils/client.js";
 import { output, printSuccess } from "../../output.js";
 import { handleError } from "../../errors.js";
 import { requireOption, parsePrice } from "../../utils/validators.js";
-import type { Product } from "@gumroad/sdk";
+import type { Product } from "@gumroad-sdk/sdk";
 
 export function createProductCommand(): Command {
     return new Command("create")

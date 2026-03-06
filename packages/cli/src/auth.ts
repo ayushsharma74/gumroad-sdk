@@ -1,4 +1,4 @@
-import { GumroadClient } from "@gumroad/sdk";
+import { GumroadClient } from "@gumroad-sdk/sdk";
 import { readConfig } from "./config.js";
 
 export async function validateToken(token: string): Promise<{ valid: boolean; user?: Record<string, unknown>; error?: string }> {

@@ -3,6 +3,7 @@ import { SalesResource } from "./resources/sales.js";
 import { SubscribersResource } from "./resources/subscribers.js";
 import { LicensesResource } from "./resources/licenses.js";
 import { OffersResource } from "./resources/offers.js";
+import { CustomFieldsResource } from "./resources/customFields.js";
 export interface GumroadClientOptions {
     accessToken: string;
     baseURL?: string;
@@ -15,6 +16,7 @@ export declare class GumroadClient {
     readonly subscribers: SubscribersResource;
     readonly licenses: LicensesResource;
     readonly offers: OffersResource;
+    readonly customFields: CustomFieldsResource;
     private readonly accessToken;
     private readonly baseURL;
     private readonly timeout;

@@ -2,7 +2,7 @@ import { Command } from "commander";
 import { getClient } from "../../utils/client.js";
 import { output, printTable } from "../../output.js";
 import { handleError } from "../../errors.js";
-import type { Subscriber } from "@gumroad/sdk";
+import type { Subscriber } from "@gumroad-sdk/sdk";
 
 export function listSubscribersCommand(): Command {
     return new Command("list")

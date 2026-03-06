@@ -2,7 +2,7 @@ import { Command } from "commander";
 import { getClient } from "../../utils/client.js";
 import { output, printTable } from "../../output.js";
 import { handleError } from "../../errors.js";
-import type { LicenseVerifyResult } from "@gumroad/sdk";
+import type { LicenseVerifyResult } from "@gumroad-sdk/sdk";
 
 export function verifyLicenseCommand(): Command {
     return new Command("verify")

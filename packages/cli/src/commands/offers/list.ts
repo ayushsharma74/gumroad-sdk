@@ -2,7 +2,7 @@ import { Command } from "commander";
 import { getClient } from "../../utils/client.js";
 import { output, printTable } from "../../output.js";
 import { handleError } from "../../errors.js";
-import type { Offer } from "@gumroad/sdk";
+import type { Offer } from "@gumroad-sdk/sdk";
 
 export function listOffersCommand(): Command {
     return new Command("list")

@@ -42,7 +42,6 @@ export class CustomFieldsResource {
     async update(productId: string, name: string, input: UpdateCustomFieldInput): Promise<CustomField> {
         const data = await this.client.request<{ success: boolean; custom_field: CustomField }>(
             "PUT",
-            // The API requires the name in the path to be URL-encoded
             `/products/${productId}/custom_fields/${encodeURIComponent(name)}`,
             input as unknown as Record<string, unknown>,
         );

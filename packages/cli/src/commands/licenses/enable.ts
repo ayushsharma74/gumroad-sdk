@@ -2,7 +2,7 @@ import { Command } from "commander";
 import { getClient } from "../../utils/client.js";
 import { output, printSuccess } from "../../output.js";
 import { handleError } from "../../errors.js";
-import type { License } from "@gumroad/sdk";
+import type { License } from "@gumroad-sdk/sdk";
 
 export function enableLicenseCommand(): Command {
     return new Command("enable")

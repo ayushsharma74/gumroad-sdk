@@ -8,4 +8,5 @@ export { SalesResource } from "./resources/sales.js";
 export { SubscribersResource } from "./resources/subscribers.js";
 export { LicensesResource } from "./resources/licenses.js";
 export { OffersResource } from "./resources/offers.js";
+export { CustomFieldsResource } from "./resources/customFields.js";
 //# sourceMappingURL=index.js.map

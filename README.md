@@ -1,3 +1,15 @@
+⚠️ **Experimental Software**
+
+This project is currently **experimental and under active testing**.
+
+* APIs and CLI commands may change without notice
+* Some commands perform **destructive actions** (e.g. deleting products)
+* Use at your own risk and avoid production use for now
+
+Please report bugs and feedback through GitHub issues.
+
+
+
 # Gumroad CLI & SDK
 
 A production-ready **pnpm monorepo** containing a typed SDK client for the Gumroad API and a companion CLI tool.

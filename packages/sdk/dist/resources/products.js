@@ -22,6 +22,14 @@ export class ProductsResource {
     async delete(productId) {
         await this.client.request("DELETE", `/products/${productId}`);
     }
+    async disable(productId) {
+        const data = await this.client.request("PUT", `/products/${productId}/disable`);
+        return data.product;
+    }
+    async enable(productId) {
+        const data = await this.client.request("PUT", `/products/${productId}/enable`);
+        return data.product;
+    }
     async enableOffer(productId, offerId) {
         const data = await this.client.request("PUT", `/products/${productId}/offer_codes/${offerId}/enable`);
         return data.product;

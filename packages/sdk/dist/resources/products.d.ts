@@ -8,6 +8,8 @@ export declare class ProductsResource {
     create(input: CreateProductInput): Promise<Product>;
     update(productId: string, input: UpdateProductInput): Promise<Product>;
     delete(productId: string): Promise<void>;
+    disable(productId: string): Promise<Product>;
+    enable(productId: string): Promise<Product>;
     enableOffer(productId: string, offerId: string): Promise<Product>;
     disableOffer(productId: string, offerId: string): Promise<Product>;
 }

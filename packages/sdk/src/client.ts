@@ -4,6 +4,7 @@ import { SalesResource } from "./resources/sales.js";
 import { SubscribersResource } from "./resources/subscribers.js";
 import { LicensesResource } from "./resources/licenses.js";
 import { OffersResource } from "./resources/offers.js";
+import { CustomFieldsResource } from "./resources/customFields.js";
 
 export interface GumroadClientOptions {
     accessToken: string;
@@ -18,6 +19,7 @@ export class GumroadClient {
     readonly subscribers: SubscribersResource;
     readonly licenses: LicensesResource;
     readonly offers: OffersResource;
+    readonly customFields: CustomFieldsResource;
 
     private readonly accessToken: string;
     private readonly baseURL: string;
@@ -35,6 +37,7 @@ export class GumroadClient {
         this.subscribers = new SubscribersResource(this);
         this.licenses = new LicensesResource(this);
         this.offers = new OffersResource(this);
+        this.customFields = new CustomFieldsResource(this);
     }
 
     async request<T>(

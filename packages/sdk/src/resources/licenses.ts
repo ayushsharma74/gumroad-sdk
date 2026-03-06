@@ -4,6 +4,11 @@ import type { License, LicenseVerifyParams, LicenseVerifyResult } from "../types
 export class LicensesResource {
     constructor(private client: GumroadClient) { }
 
+    /**
+     * Verify a license.
+     * @param params - The license verification parameters.
+     * @returns The license verification result.
+     */
     async verify(params: LicenseVerifyParams): Promise<LicenseVerifyResult> {
         const data = await this.client.request<LicenseVerifyResult & { success: boolean }>(
             "POST",
@@ -13,6 +18,11 @@ export class LicensesResource {
         return data;
     }
 
+    /**
+     * Enable a license.
+     * @param licenseId - The license ID.
+     * @returns The updated license.
+     */
     async enable(licenseId: string): Promise<License> {
         const data = await this.client.request<{ success: boolean; license: License }>(
             "PUT",
@@ -21,6 +31,11 @@ export class LicensesResource {
         return data.license;
     }
 
+    /**
+     * Disable a license.
+     * @param licenseId - The license ID.
+     * @returns The updated license.
+     */
     async disable(licenseId: string): Promise<License> {
         const data = await this.client.request<{ success: boolean; license: License }>(
             "PUT",
@@ -29,6 +44,11 @@ export class LicensesResource {
         return data.license;
     }
 
+    /**
+     * Decrement the uses count of a license.
+     * @param licenseId - The license ID.
+     * @returns The updated license.
+     */
     async decrement(licenseId: string): Promise<License> {
         const data = await this.client.request<{ success: boolean; license: License }>(
             "PUT",

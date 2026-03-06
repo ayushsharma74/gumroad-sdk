@@ -17,6 +17,7 @@ export { SalesResource } from "./resources/sales.js";
 export { SubscribersResource } from "./resources/subscribers.js";
 export { LicensesResource } from "./resources/licenses.js";
 export { OffersResource } from "./resources/offers.js";
+export { CustomFieldsResource } from "./resources/customFields.js";
 
 // Types — Product
 export type {
@@ -54,6 +55,13 @@ export type {
     Offer,
     CreateOfferInput,
 } from "./types/offer.js";
+
+// Types — Custom Field
+export type {
+    CustomField,
+    CreateCustomFieldInput,
+    UpdateCustomFieldInput,
+} from "./types/customField.js";
 
 // Types — Common
 export type {

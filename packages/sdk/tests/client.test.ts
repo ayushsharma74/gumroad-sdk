@@ -297,3 +297,69 @@ describe("OffersResource", () => {
         ).resolves.toBeUndefined();
     });
 });
+
+describe("CustomFieldsResource", () => {
+    it("should list custom fields for a product", async () => {
+        const mockFetch = createMockFetch({
+            body: {
+                success: true,
+                custom_fields: [{ name: "phone number", required: false }],
+            },
+        });
+        const client = createClient(mockFetch);
+
+        const customFields = await client.customFields.list("prod1");
+        expect(customFields).toHaveLength(1);
+    });
+
+    it("should create a custom field", async () => {
+        const mockFetch = createMockFetch({
+            body: {
+                success: true,
+                custom_field: { name: "phone number", required: true },
+            },
+        });
+        const client = createClient(mockFetch);
+
+        const customField = await client.customFields.create("prod1", {
+            name: "phone number",
+            required: true,
+        });
+        expect(customField.name).toBe("phone number");
+        expect(customField.required).toBe(true);
+    });
+
+    it("should update a custom field", async () => {
+        const mockFetch = createMockFetch({
+            body: {
+                success: true,
+                custom_field: { name: "phone number", required: false },
+            },
+        });
+        const client = createClient(mockFetch);
+
+        const customField = await client.customFields.update("prod1", "phone number", {
+            required: false,
+        });
+        expect(customField.required).toBe(false);
+
+        // Ensure the URI was encoded: phone number -> phone%20number
+        const calledUrl = new URL(mockFetch.mock.calls[0]![0] as string);
+        expect(calledUrl.pathname).toContain("phone%20number");
+    });
+
+    it("should delete a custom field", async () => {
+        const mockFetch = createMockFetch({
+            body: { success: true, message: "Deleted" },
+        });
+        const client = createClient(mockFetch);
+
+        await expect(
+            client.customFields.delete("prod1", "phone number"),
+        ).resolves.toBeUndefined();
+
+        // Ensure the URI was encoded
+        const calledUrl = new URL(mockFetch.mock.calls[0]![0] as string);
+        expect(calledUrl.pathname).toContain("phone%20number");
+    });
+});

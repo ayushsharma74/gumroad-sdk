@@ -1,5 +1,5 @@
 {
-    "name": "gumroad",
+    "name": "gumroad-sdk",
     "private": true,
     "scripts": {
         "build": "pnpm -r build",
